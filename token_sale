@@ -1,0 +1,23 @@
+{
+  "Ecommerce": {
+    "OrderNumber": "SDK Support 124",
+    "Amounts": {
+      "Total": "7.00"
+    },
+    "Billing": {
+      "Name": "Tim Meadows",
+      "Address": "123 Main St",
+      "City": "Savannah",
+      "State": "GA",
+      "PostalCode": "31405",
+      "Country": "USA"
+    },
+    "Customer": {
+      "Email": "test@example.com"
+    }
+  },
+  "Vault": {
+    "Operation": "read",
+    "Token": "99f81725e8494127acd2b0edda3fd5b1"
+  }
+}
