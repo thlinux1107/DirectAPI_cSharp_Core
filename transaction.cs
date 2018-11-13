@@ -91,6 +91,7 @@ class MainClass
         // You will need to use the token URL above with this request.
         //StreamReader sr = new StreamReader("token_create.json");
         string request = sr.ReadToEnd();
+        sr.Close();
 
         // TH - Build the Authorization
         string authToken = verb + url + request + merchantId + nonce + timestamp;
@@ -117,6 +118,8 @@ class MainClass
 
         // Send the request.
         var response = await client.PostAsync(url, payload);
+        Console.WriteLine("<<<<<<<<Connection Opened>>>>>>>>");
+        Console.WriteLine(nl);
 
         // Gather the response and display
         // >>Note: I have not included any response logic or error handling.
@@ -124,7 +127,6 @@ class MainClass
         var responseString = await response.Content.ReadAsStringAsync();
         var respStatDesc = response.StatusCode.ToString();
         var respStatCode = (int)response.StatusCode;
-
         Console.WriteLine("Response Status Desc: " + respStatDesc);
         Console.WriteLine(nl);
         Console.WriteLine("Response Status Code: " + respStatCode);
@@ -132,6 +134,9 @@ class MainClass
         Console.WriteLine("Response: " + responseString);
         Console.WriteLine(nl);
 
+        response.Dispose();
+        Console.WriteLine("<<<<<<<<Connection Closed>>>>>>>>");
+        Console.WriteLine(nl);
         Console.WriteLine("Transaction Ended");
         Console.WriteLine(nl);
         Console.WriteLine("Press Enter to exit:");
